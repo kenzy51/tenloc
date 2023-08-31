@@ -6,6 +6,7 @@ import longLine from "../../libs/assets/svg/Line 4.svg";
 import ermitage from "../../libs/assets/png/ermitage.png";
 import addPlus from "../../libs/assets/svg/Добавить в заказ.svg";
 import fav from "../../libs/assets/svg/В избранные.svg";
+import { Reviews } from "./Reviews";
 
 export const Excursion = () => {
   const arIts = [
@@ -32,17 +33,26 @@ export const Excursion = () => {
       desc: "Двухчасовая экскурсия по Эрмитажу в мини-группе — история Зимнего дворца и шедевры мастеров Западной Европы.",
       price: "от 2750 ₽",
       image: ermitage,
-    }, {
+    },
+    {
       name: "Коллекция Эрмитажа и парадная жизнь Зимнего дворца",
       desc: "Двухчасовая экскурсия по Эрмитажу в мини-группе — история Зимнего дворца и шедевры мастеров Западной Европы.",
       price: "от 2750 ₽",
       image: ermitage,
-    }, {
+    },
+    {
       name: "Коллекция Эрмитажа и парадная жизнь Зимнего дворца",
       desc: "Двухчасовая экскурсия по Эрмитажу в мини-группе — история Зимнего дворца и шедевры мастеров Западной Европы.",
       price: "от 2750 ₽",
       image: ermitage,
-    }, {
+    },
+    {
+      name: "Коллекция Эрмитажа и парадная жизнь Зимнего дворца",
+      desc: "Двухчасовая экскурсия по Эрмитажу в мини-группе — история Зимнего дворца и шедевры мастеров Западной Европы.",
+      price: "от 2750 ₽",
+      image: ermitage,
+    },
+    {
       name: "Коллекция Эрмитажа и парадная жизнь Зимнего дворца",
       desc: "Двухчасовая экскурсия по Эрмитажу в мини-группе — история Зимнего дворца и шедевры мастеров Западной Европы.",
       price: "от 2750 ₽",
@@ -62,7 +72,7 @@ export const Excursion = () => {
         <ListItems>
           {arIts.map((item, index) => (
             <BlockItem>
-              <Heart src={fav}/>
+              <Heart src={fav} />
               <img src={item.image} alt="" width={332} />
               <DescBlock>
                 <h1>{item.name}</h1>
@@ -85,18 +95,46 @@ export const Excursion = () => {
             </BlockItem>
           ))}
         </ListItems>
+        <PrimaryButton>
+          <p>Все экскурсии</p>
+        </PrimaryButton>
       </Container>
+    <Reviews/>
+
     </Wrapper>
   );
 };
 const { containers, mqMax } = theme;
 
+export const PrimaryButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 0 18px;
+  height: 55px;
+  max-width: 194px;
+  margin-bottom: 104px;
+  margin-top: 73px;
+  border-radius: 100px;
+  background: #ffd600;
+  color: #000;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  p {
+    width: 157.272px;
+  }
+`;
 const Heart = styled.img`
-cursor: pointer;
+  cursor: pointer;
   position: absolute;
   margin-top: 16px;
   margin-left: 267px;
-`
+`;
 const PriceWithTime = styled.div`
   margin-top: 14px;
   display: flex;
@@ -178,6 +216,7 @@ const BlockItem = styled.div`
 `;
 const ListItems = styled.div`
   display: flex;
+  justify-content: center;
   column-gap: 35px;
   flex-wrap: wrap;
   row-gap: 30px;
@@ -200,6 +239,8 @@ const MainTitle = styled.h1`
 `;
 const Wrapper = styled.div`
   margin-top: 108px;
+  border-radius: 0px 0px 50px 50px;
+  padding-bottom: 114px;
 `;
 const Container = styled.div`
   padding-top: 93px;

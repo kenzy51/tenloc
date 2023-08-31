@@ -1,10 +1,17 @@
 import { theme } from "src/styles/theme";
+import { useState } from "react";
 import { styled } from "styled-components";
-import logo from "../../libs/assets/svg/logo.svg";
+import logo from "../../libs/assets/svg/Логотип.svg";
 import fav from "../../libs/assets/svg/Избранные.svg";
 import { ButtonNavigation } from "src/shared/ui/button";
 import arrow from "../../libs/assets/svg/arrow-down-sign-to-navigate 1.svg";
+import telegram from "../../libs/assets/svg/TelegramButton.svg";
+import whatsapp from "../../libs/assets/svg/WhatsAppButton.svg";
+import phone from "../../libs/assets/svg/Телефон.svg";
+import mail from "../../libs/assets/svg/Почта.svg";
+import { SwiperSlide } from "swiper/react";
 export const Header = () => {
+  const [hover, setHovered] = useState(false);
   const data = [
     {
       name: "О сервисе",
@@ -28,13 +35,41 @@ export const Header = () => {
           {data.map((item) => (
             <>
               <LinkItem>
-              <p>{item.name}</p>
-              {item.icon && (
-                <img src={item.icon} alt="" />
-              )}
+                <p>{item.name}</p>
+                {item.icon && (
+                  <img
+                    src={item.icon}
+                    alt=""
+                    onClick={() => {
+                      console.log("Mouse entered");
+                      setHovered((prev) => !prev);
+                    }}
+                  />
+                )}
               </LinkItem>
             </>
           ))}
+          {hover && (
+            <Card>
+              <p>Мы на связи с 09:00 до 21:00 мск</p>
+              <Buttons>
+                <button>
+                  <img src={whatsapp} alt="" />
+                </button>
+                <button>
+                  <img src={telegram} alt="" />
+                </button>
+              </Buttons>{" "}
+              <Buttons2>
+                <button>
+                  <img src={phone} alt="" />
+                </button>
+                <button>
+                  <img src={mail} alt="" />
+                </button>
+              </Buttons2>
+            </Card>
+          )}
         </InfoBlock>
 
         <RightBlock>
@@ -47,12 +82,40 @@ export const Header = () => {
 };
 const { containers, mqMax } = theme;
 
+const Buttons = styled.div`
+  margin-top: 15px;
+  display: flex;
+  column-gap: 14px;
+`;
+const Buttons2 = styled.div`
+  margin-top: 15px;
+  display: flex;
+  column-gap: 31px;
+`;
+const Card = styled.div`
+  padding: 17px 23px 22px 27px;
+  margin-top: 220px;
+  margin-left: 230px;
+  position: absolute;
+  width: 388.078px;
+  height: 170px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 7px 100px 0px rgba(0, 0, 0, 0.15);
+  p {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px; /* 166.667% */
+  }
+`;
 const LinkItem = styled.div`
   display: flex;
   column-gap: 9px;
   cursor: pointer;
-
-`
+`;
 const RightBlock = styled.div`
   display: flex;
   margin-left: auto;
